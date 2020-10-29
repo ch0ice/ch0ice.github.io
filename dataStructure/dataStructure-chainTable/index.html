@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Damion:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数据结构,链表,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Choice's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="什么是链表链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。使用链表结构可以克服数">
+<meta name="keywords" content="数据结构,链表">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构之链表">
+<meta property="og:url" content="http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/index.html">
+<meta property="og:site_name" content="Choice&#39;s Blog">
+<meta property="og:description" content="什么是链表链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。使用链表结构可以克服数">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/source/images/singleChainTable.png">
+<meta property="og:image" content="http://blog.onlinetool.com.cn/images/doubleChainTable.png">
+<meta property="og:image" content="http://blog.onlinetool.com.cn/images/loopChainTable.png">
+<meta property="og:updated_time" content="2020-09-25T03:37:14.685Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据结构之链表">
+<meta name="twitter:description" content="什么是链表链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。使用链表结构可以克服数">
+<meta name="twitter:image" content="http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/source/images/singleChainTable.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/">
+
+
+
+
+
+  <title>数据结构之链表 | Choice's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?90aa63e8cd3863bfdba1f3fdfcd619c1";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband">
+      <a href="https://github.com/ch0ice" class="github-corner" aria-label="View source on Github" rel="external nofollow noopener noreferrer" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    </div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Choice's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Choice">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/portrait.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Choice's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">数据结构之链表</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-28T00:00:00+08:00">
+                2018-07-28
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2020-09-25T11:37:14+08:00">
+                2020-09-25
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/dataStructure/dataStructure-chainTable/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/dataStructure/dataStructure-chainTable/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,402
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="什么是链表"><a href="#什么是链表" class="headerlink" title="什么是链表"></a>什么是链表</h3><p>链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的指针(Pointer)。<br>由于不必须按顺序存储，链表在插入的时候可以达到O(1)的复杂度，比另一种线性表顺序表快得多，但是查找一个节点或者访问特定编号的节点则需要O(n)的时间，而顺序表相应的时间复杂度分别是O(logn)和O(1)。<br>使用链表结构可以克服数组链表需要预先知道数据大小的缺点，链表结构可以充分利用计算机内存空间，实现灵活的内存动态管理。但是链表失去了数组随机读取的优点，同时链表由于增加了结点的指针域，空间开销比较大。<br>在计算机科学中，链表作为一种基础的数据结构可以用来生成其它类型的数据结构。链表通常由一连串节点组成，每个节点包含任意的实例数据（data fields）和一或两个用来指向上一个/或下一个节点的位置的链接（”links”）。<br>链表最明显的好处就是，常规数组排列关联项目的方式可能不同于这些数据项目在记忆体或磁盘上顺序，数据的访问往往要在不同的排列顺序中转换。<br>而链表是一种自我指示数据类型，因为它包含指向另一个相同类型的数据的指针（链接）。<br>链表允许插入和移除表上任意位置上的节点，但是不允许随机存取。<br>链表有很多种不同的类型：单向链表，双向链表以及循环链表等。</p>
+<p><a href="https://github.com/ch0ice/blog-example/tree/master/data-structure/chain-table/" rel="external nofollow noopener noreferrer" target="_blank"><font color="#0099ff">点击这里查看博客对应的完整代码</font></a></p>
+<h3 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h3><p><img src="/dataStructure/dataStructure-chainTable/source/images/singleChainTable.png" alt="" title="单向链表"><br>链表中最简单的一种是单向链表，它包含两个域，一个信息域和一个指针域。这个链接指向列表中的下一个节点，而最后一个节点则指向一个空值。<br>一个单向链表的节点被分成两个部分。<br>第一个部分保存或者显示关于节点的信息，第二个部分存储下一个节点的地址。单向链表只可向一个方向遍历。<br>链表最基本的结构是在每个节点保存数据和到下一个节点的地址，在最后一个节点保存一个特殊的结束标记，另外在一个固定的位置保存指向第一个节点的指针，有的时候也会同时储存指向最后一个节点的指针。<br>一般查找一个节点的时候需要从第一个节点开始每次访问下一个节点，一直访问到需要的位置。但是也可以提前把一个节点的位置另外保存起来，然后直接访问。<br>当然如果只是访问数据就没必要了，不如在链表上储存指向实际数据的指针。这样一般是为了访问链表中的下一个或者前一个节点（需要储存反向的指针，也就是双向链表）。<br>相对于下面说的双向链表，这种普通的，每个节点只有一个指针的链表也叫单向链表，或者单链表，通常用在每次都只会按顺序遍历这个链表的时候。</p>
+<h4 id="单向链表的实现"><a href="#单向链表的实现" class="headerlink" title="单向链表的实现"></a>单向链表的实现</h4><p>定义单向链表数据结构<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    ss* next;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>这是一个最简单的单向链表的数据结构，<font color="#0099ff">链表中的每个元素我们称之为node，node中的data为数据域，next为指针域，指向下一个元素</font>，下面我们来声明几个链表，并给链表的<font color="#0099ff">数据域</font>中放上数据。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">node* s1 = <span class="keyword">new</span> node();</span><br><span class="line">s1-&gt;data = <span class="number">1</span>;</span><br><span class="line">node* s2 = <span class="keyword">new</span> node();</span><br><span class="line">s2-&gt;data = <span class="number">2</span>;</span><br><span class="line">node* s3 = <span class="keyword">new</span> node();</span><br><span class="line">s3-&gt;data = <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+<p>这里我们初始化了3个node，将node关联起来后才是一个完整的链表，那么怎么关联呢？我们继续看下面的代码。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s1-&gt;next = s2;</span><br><span class="line">s2-&gt;next = s3;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印链表中的数据</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1-&gt;next-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1-&gt;next-&gt;next-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//输出结果为</span></span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<p>没错，到这里我们已经实现了一个完整的链表了，是不是很简单。<br>下面我们先插入一个节点，并输出一下每个node的内存地址和每个node中的数据。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  插入节点</span></span><br><span class="line"><span class="comment">//  链表的插入非常简单，复杂度仅为O(1)。</span></span><br><span class="line"><span class="comment">//  这也就是为什么说链表插入快，因为他只需要改变插入元素前后的指针指向。</span></span><br><span class="line">node* s4 = <span class="keyword">new</span> node();</span><br><span class="line">s4-&gt;data = <span class="number">40</span>;</span><br><span class="line">s1-&gt;next = s4;</span><br><span class="line">s4-&gt;next = s2;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  打印内存地址</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//输出的内存地址(以下地址仅供参考，每个计算机输出的内存地址都不一样)</span></span><br><span class="line"><span class="comment">//以下内存地址毫无规律，如果有，纯属巧合~</span></span><br><span class="line"><span class="comment">//0xff1478</span></span><br><span class="line"><span class="comment">//0xff14a8</span></span><br><span class="line"><span class="comment">//0xff14b8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  链表的查询复杂度为O(n)，除非查询的是首元素。</span></span><br><span class="line"><span class="comment">//  由于链表内存不连续，所以没有下标的概念，取值只能循环取，</span></span><br><span class="line"><span class="comment">//  这也就是为什么链表查询慢的原因</span></span><br><span class="line"><span class="comment">//  因为我们例子中的链表很短，并且为了更加直观，所以我们这里没有用循环。</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1-&gt;next-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; s1-&gt;next-&gt;next-&gt;data &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"><span class="comment">//输出结果为</span></span><br><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="comment">//40</span></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="comment">//3</span></span><br></pre></td></tr></table></figure></p>
+<p>从上面的代码中很明显的体现出了链表的特点，<font color="#0099ff">线性、无序(这里说的无序是内存无序，和数据顺序无关)、查询慢、插入快</font>。</p>
+<h3 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h3><p><img src="/dataStructure/dataStructure-chainTable/../../images/doubleChainTable.png" alt="" title="双向链表"><br>一种更复杂的链表是“双向链表”或“双面链表”。<br>双向链表中不仅有指向后一个节点的指针，还有指向前一个节点的指针。<br>这样可以从任何一个节点访问前一个节点，当然也可以访问后一个节点，以至整个链表。<br>一般是在需要大批量存储另外储存数据在链表中的位置的时候用。双向链表也可以配合下面的其他链表的扩展使用。<br>由于另外储存了指向链表内容的指针，并且可能会修改相邻的节点，有的时候第一个节点可能会被删除或者在之前添加一个新的节点，这时候就要修改指向首个节点的指针。<br>有一种方便的可以消除这种特殊情况的方法是在最后一个节点之后、第一个节点之前储存一个永远不会被删除或者移动的虚拟节点（头节点），形成一个下面说的循环链表。<br>这个虚拟节点之后的节点就是真正的第一个节点。</p>
+<h3 id="循环链表"><a href="#循环链表" class="headerlink" title="循环链表"></a>循环链表</h3><p><img src="/dataStructure/dataStructure-chainTable/../../images/loopChainTable.png" alt="" title="循环链表"><br>将一个单向链表或双向链表首尾相连，就成了循环链表。<br>这种方式在单向和双向链表中皆可实现，区别仅在于单向循环链表只能从一个方向循环，双向循环链表可以超两个方向循环。<br>循环链表可以被视为“无头无尾”，循环链表中第一个节点之前就是最后一个节点，反之亦然。<br>循环链表的无边界使得在这样的链表上设计算法会比普通链表更加容易。<br>对于新加入的节点应该是在第一个节点之前还是最后一个节点之后可以根据实际要求灵活处理，区别不大(详见下面实例代码)。</p>
+<h4 id="双向循环链表的实现"><a href="#双向循环链表的实现" class="headerlink" title="双向循环链表的实现"></a>双向循环链表的实现</h4><p>有了上面的了解，我们下面来实现一个完整的<font color="#0099ff">双向循环链表</font>。<br>首先我们定义头文件，头文件大家可以理解为java语言中的接口，如果我们不定义头文件也是可以的，只不过定义了头文件，我们实现了什么功能，大家在头文件中可以一目了然。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> LINKED_LIST_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LINKED_LIST_H</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//打印</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="keyword">void</span> <span class="title">node_print_fun_t</span><span class="params">(<span class="keyword">void</span>*)</span></span>;</span><br><span class="line"><span class="comment">//比较</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="keyword">int</span> <span class="title">node_compare_fun_t</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span>*, <span class="keyword">const</span> <span class="keyword">void</span>*)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> LINKED_LIST_T;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">LINKED_LIST_T *<span class="title">linked_list_new</span><span class="params">(<span class="keyword">int</span> elmsize)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_delete</span><span class="params">(<span class="keyword">int</span> *ptr)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入节点 尾插入</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_node_append</span><span class="params">(<span class="keyword">int</span> *ptr, <span class="keyword">const</span> <span class="keyword">void</span> *data)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入节点 头插入</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_node_prepend</span><span class="params">(<span class="keyword">int</span> *ptr, <span class="keyword">const</span> <span class="keyword">void</span> *data)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历节点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_travel</span><span class="params">(<span class="keyword">int</span> *ptr, <span class="keyword">node_print_fun_t</span> *proc)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">linked_list_node_delete</span><span class="params">(<span class="keyword">int</span> *ptr, <span class="keyword">node_compare_fun_t</span> *compare, <span class="keyword">const</span> <span class="keyword">void</span> *key)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">linked_list_node_find</span><span class="params">(<span class="keyword">int</span> *ptr, <span class="keyword">node_compare_fun_t</span> *compare, <span class="keyword">const</span> <span class="keyword">void</span> *key)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
+<p>定义链表的数据结构<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义双向链表节点</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">    <span class="keyword">void</span> *data;</span><br><span class="line">    node *prev,*next;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//定义双向链表结构体</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">linked_list</span>&#123;</span></span><br><span class="line">    node head;</span><br><span class="line">    <span class="comment">//元素大小</span></span><br><span class="line">    <span class="keyword">int</span> elm_size;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>看，是不是和我们之前实现的单向链表差不多呢。<br>然后我们实现头文件中的方法。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">LINKED_LIST_T *<span class="title">linked_list_new</span><span class="params">(<span class="keyword">int</span> elm_size)</span> </span>&#123;</span><br><span class="line">    linked_list *new_list = (linked_list *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(linked_list));</span><br><span class="line">    <span class="keyword">if</span> (new_list == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    new_list-&gt;head.data = <span class="literal">NULL</span>;</span><br><span class="line">    new_list-&gt;head.next = &amp;new_list-&gt;head;</span><br><span class="line">    new_list-&gt;head.prev = &amp;new_list-&gt;head;</span><br><span class="line">    new_list-&gt;elm_size = elm_size;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">void</span> *)new_list;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_delete</span><span class="params">(LINKED_LIST_T *ptr)</span> </span>&#123;</span><br><span class="line">    linked_list *me = (linked_list*)ptr;</span><br><span class="line">    node *curr, *save;</span><br><span class="line">    <span class="keyword">for</span> (curr = me-&gt;head.next; curr != &amp;me-&gt;head; curr = save) &#123;</span><br><span class="line">        save = curr-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(curr-&gt;data);</span><br><span class="line">        <span class="built_in">free</span>(curr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(me);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入节点 在元素末尾追加元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_node_append</span><span class="params">(LINKED_LIST_T *ptr, <span class="keyword">const</span> <span class="keyword">void</span> *data)</span> </span>&#123;</span><br><span class="line">    linked_list *new_list = (linked_list*)ptr;</span><br><span class="line">    node *new_node;</span><br><span class="line">    new_node = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">    <span class="keyword">if</span> (new_node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    new_node-&gt;data = <span class="built_in">malloc</span>(new_list-&gt;elm_size);</span><br><span class="line">    <span class="keyword">if</span> (new_node-&gt;data == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">free</span>(new_node);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//复制内存</span></span><br><span class="line">    <span class="built_in">memcpy</span>(new_node-&gt;data, data, new_list-&gt;elm_size);</span><br><span class="line">    new_list-&gt;head.prev-&gt;next = new_node;</span><br><span class="line">    new_node-&gt;prev = new_list-&gt;head.prev;</span><br><span class="line">    new_list-&gt;head.prev = new_node;</span><br><span class="line">    new_node-&gt;next = &amp;new_list-&gt;head;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//插入节点 在元素头追加元素</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_node_prepend</span><span class="params">(LINKED_LIST_T *ptr, <span class="keyword">const</span> <span class="keyword">void</span> *data)</span> </span>&#123;</span><br><span class="line">    linked_list *new_list = (linked_list*)ptr;</span><br><span class="line">    node *new_node;</span><br><span class="line">    new_node = (node*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(node));</span><br><span class="line">    <span class="keyword">if</span> (new_node == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    new_node-&gt;data = <span class="built_in">malloc</span>(new_list-&gt;elm_size);</span><br><span class="line">    <span class="keyword">if</span> (new_node-&gt;data == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">free</span>(new_node);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//复制内存</span></span><br><span class="line">    <span class="built_in">memcpy</span>(new_node-&gt;data, data, new_list-&gt;elm_size);</span><br><span class="line">    new_list-&gt;head.next-&gt;prev = new_node;</span><br><span class="line">    new_node-&gt;next = new_list-&gt;head.next;</span><br><span class="line">    new_list-&gt;head.next = new_node;</span><br><span class="line">    new_node-&gt;prev = &amp;new_list-&gt;head;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历节点</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">linked_list_travel</span><span class="params">(LINKED_LIST_T *ptr, <span class="keyword">node_print_fun_t</span> *proc)</span> </span>&#123;</span><br><span class="line">    linked_list *me = (linked_list*)ptr;</span><br><span class="line">    node *curr;</span><br><span class="line">    <span class="keyword">for</span> (curr = me-&gt;head.next; curr != &amp;me-&gt;head; curr = curr-&gt;next)&#123;</span><br><span class="line">        proc(curr-&gt;data); <span class="comment">// proc(something you like)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">linked_list_node_delete</span><span class="params">(LINKED_LIST_T *ptr,</span></span></span><br><span class="line"><span class="function"><span class="params">                       <span class="keyword">node_compare_fun_t</span> *comp,</span></span></span><br><span class="line"><span class="function"><span class="params">                       <span class="keyword">const</span> <span class="keyword">void</span> *key)</span> </span>&#123;</span><br><span class="line">    linked_list *me = (linked_list*)ptr;</span><br><span class="line">    node *curr;</span><br><span class="line">    <span class="keyword">for</span> (curr = me-&gt;head.next;</span><br><span class="line">            curr != &amp;me-&gt;head; curr = curr-&gt;next) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( (*comp)(curr-&gt;data, key) == <span class="number">0</span> ) &#123;</span><br><span class="line">            node *_next, *_prev;</span><br><span class="line">            _prev = curr-&gt;prev; _next = curr-&gt;next;</span><br><span class="line">            _prev-&gt;next = _next; _next-&gt;prev = _prev;</span><br><span class="line">            <span class="built_in">free</span>(curr-&gt;data);</span><br><span class="line">            <span class="built_in">free</span>(curr);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找节点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> *<span class="title">linked_list_node_find</span><span class="params">(LINKED_LIST_T *ptr,</span></span></span><br><span class="line"><span class="function"><span class="params">                      <span class="keyword">node_compare_fun_t</span> *comp,</span></span></span><br><span class="line"><span class="function"><span class="params">                      <span class="keyword">const</span> <span class="keyword">void</span> *key)</span> </span>&#123;</span><br><span class="line">    linked_list *me = (linked_list*)ptr;</span><br><span class="line">    node *curr;</span><br><span class="line">    <span class="keyword">for</span> (curr = me-&gt;head.next;</span><br><span class="line">            curr != &amp;me-&gt;head; curr = curr-&gt;next) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( (*comp)(curr-&gt;data, key) == <span class="number">0</span> )</span><br><span class="line">            <span class="keyword">return</span> curr-&gt;data;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//比较函数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> *data1, <span class="keyword">const</span> <span class="keyword">void</span> *data2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (*((<span class="keyword">int</span>*)data1) == *((<span class="keyword">int</span>*)data2))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">proc</span><span class="params">(<span class="keyword">void</span> *data)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; *((<span class="keyword">int</span>*)data) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="链表的存储结构"><a href="#链表的存储结构" class="headerlink" title="链表的存储结构"></a>链表的存储结构</h3><p>链表中的节点不需要以特定的方式存储，但是集中存储也是可以的，主要分下面这几种具体的存储方法：</p>
+<h4 id="共用存储空间"><a href="#共用存储空间" class="headerlink" title="共用存储空间"></a>共用存储空间</h4><p>链表的节点和其它的数据共用存储空间，优点是可以存储无限多的内容（不过要处理器支持这个大小，并且存储空间足够的情况下），不需要提前分配内存；缺点是由于内容分散，有时候可能不方便调试。</p>
+<h4 id="独立存储空间"><a href="#独立存储空间" class="headerlink" title="独立存储空间"></a>独立存储空间</h4><p>一个链表或者多个链表使用独立的存储空间，一般用数组或者类似结构实现，优点是可以自动获得一个附加数据：唯一的编号，并且方便调试；缺点是不能动态的分配内存。<br>当然，另外的在上面加一层块状链表用来分配内存也是可以的，这样就解决了这个问题。这种方法有时候被叫做数组模拟链表，但是事实上只是用表示在数组中的位置的下标索引代替了指向内存地址的指针，这种下标索引其实也是逻辑上的指针，整个结构还是链表，并不算是被模拟的（但是可以说成是用数组实现的链表）。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><h4 id="单向链表-1"><a href="#单向链表-1" class="headerlink" title="单向链表"></a>单向链表</h4><p>链表中最简单的一种是单向链表，它包含两个域，一个信息域和一个指针域。这个链接指向列表中的下一个节点，而最后一个节点则指向一个空值。</p>
+<h4 id="双向链表-1"><a href="#双向链表-1" class="headerlink" title="双向链表"></a>双向链表</h4><p>双向链表中不仅有指向后一个节点的指针，还有指向前一个节点的指针。</p>
+<h4 id="循环链表-1"><a href="#循环链表-1" class="headerlink" title="循环链表"></a>循环链表</h4><p>将一个单向链表或双向链表首尾相连，就成了循环链表。<br>这种方式在单向和双向链表中皆可实现，区别仅在于单向循环链表只能从一个方向循环，双向循环链表可以超两个方向循环。</p>
+<h4 id="链表特点"><a href="#链表特点" class="headerlink" title="链表特点"></a>链表特点</h4><p>线性、无序、查询慢、插入快</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wechat-qcode.jpg" alt="Choice wechat" style="width: 200px; max-width: 100%;">
+    <div>关注公众号，获取文章更新通知。</div>
+</div>
+
+      </div>
+    
+
+    <div>
+      
+        
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.png" alt="Choice 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.png" alt="Choice 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Choice
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/" title="数据结构之链表">http://blog.onlinetool.com.cn/dataStructure/dataStructure-chainTable/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据结构/" rel="tag"># 数据结构</a>
+          
+            <a href="/tags/链表/" rel="tag"># 链表</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/dataStructure/dataStructure-array/" rel="next" title="数据结构之数组">
+                <i class="fa fa-chevron-left"></i> 数据结构之数组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/dataStructure/dataStructure-vector/" rel="prev" title="数据结构之向量">
+                数据结构之向量 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/portrait.png" alt="Choice">
+            
+              <p class="site-author-name" itemprop="name">Choice</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/ch0ice" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:liuzeyuan@163.com" target="_blank" title="邮箱" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/ITwuqing?topnav=1&wvr=6&topsug=1&is_hot=1" target="_blank" title="微博" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/mr_liuzeyuan/activities" target="_blank" title="知乎" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-book"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是链表"><span class="nav-number">1.</span> <span class="nav-text">什么是链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单向链表"><span class="nav-number">2.</span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单向链表的实现"><span class="nav-number">2.1.</span> <span class="nav-text">单向链表的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向链表"><span class="nav-number">3.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环链表"><span class="nav-number">4.</span> <span class="nav-text">循环链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#双向循环链表的实现"><span class="nav-number">4.1.</span> <span class="nav-text">双向循环链表的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链表的存储结构"><span class="nav-number">5.</span> <span class="nav-text">链表的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共用存储空间"><span class="nav-number">5.1.</span> <span class="nav-text">共用存储空间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#独立存储空间"><span class="nav-number">5.2.</span> <span class="nav-text">独立存储空间</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单向链表-1"><span class="nav-number">6.1.</span> <span class="nav-text">单向链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#双向链表-1"><span class="nav-number">6.2.</span> <span class="nav-text">双向链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环链表-1"><span class="nav-number">6.3.</span> <span class="nav-text">循环链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表特点"><span class="nav-number">6.4.</span> <span class="nav-text">链表特点</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Choice</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">33.4k</span>
+  
+</div>
+
+
+  <div class="powered-by">
+    <i class="fa fa-user-md"></i>
+    <span id="busuanzi_container_site_uv">
+      本站访客数:
+      <span id="busuanzi_value_site_uv"></span>
+      次
+    </span>
+  </div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="powered-by">
+    <span id="busuanzi_container_site_pv">
+      本站总访问量:
+      <span id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  </div>
+
+  <!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+-->
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: '9SHSaI9JxokTuIBAUR71UrFK-gzGzoHsz',
+        appKey: 'SACKdrI10MKOqjRl0GzdREWg',
+        placeholder: 'Just go go',
+        avatar:'retro',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
