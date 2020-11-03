@@ -23,13 +23,6 @@
   </url>
   
   <url>
-    <loc>http://blog.onlinetool.com.cn/netty/netty-guide-6-http/</loc>
-    
-    <lastmod>2020-09-25T03:37:14.688Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://blog.onlinetool.com.cn/netty/netty-guide-5-codec/</loc>
     
     <lastmod>2020-09-25T03:37:14.688Z</lastmod>
@@ -37,14 +30,21 @@
   </url>
   
   <url>
-    <loc>http://blog.onlinetool.com.cn/netty/netty-guide-4-unpacking/</loc>
+    <loc>http://blog.onlinetool.com.cn/netty/netty-guide-3-basic/</loc>
     
     <lastmod>2020-09-25T03:37:14.688Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.onlinetool.com.cn/netty/netty-guide-3-basic/</loc>
+    <loc>http://blog.onlinetool.com.cn/netty/netty-guide-6-http/</loc>
+    
+    <lastmod>2020-09-25T03:37:14.688Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.onlinetool.com.cn/netty/netty-guide-4-unpacking/</loc>
     
     <lastmod>2020-09-25T03:37:14.688Z</lastmod>
     
@@ -65,14 +65,14 @@
   </url>
   
   <url>
-    <loc>http://blog.onlinetool.com.cn/developTool/iterm2-ohmyshell/</loc>
+    <loc>http://blog.onlinetool.com.cn/developTool/allatori/</loc>
     
     <lastmod>2020-09-25T03:37:14.686Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://blog.onlinetool.com.cn/developTool/allatori/</loc>
+    <loc>http://blog.onlinetool.com.cn/developTool/iterm2-ohmyshell/</loc>
     
     <lastmod>2020-09-25T03:37:14.686Z</lastmod>
     
@@ -107,6 +107,13 @@
   </url>
   
   <url>
+    <loc>http://blog.onlinetool.com.cn/basic/basic-2-os/</loc>
+    
+    <lastmod>2020-09-25T03:37:14.684Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.onlinetool.com.cn/basic/basic-3-network/</loc>
     
     <lastmod>2020-09-25T03:37:14.684Z</lastmod>
@@ -115,13 +122,6 @@
   
   <url>
     <loc>http://blog.onlinetool.com.cn/basic/basic-1-hardware/</loc>
-    
-    <lastmod>2020-09-25T03:37:14.684Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.onlinetool.com.cn/basic/basic-2-os/</loc>
     
     <lastmod>2020-09-25T03:37:14.684Z</lastmod>
     

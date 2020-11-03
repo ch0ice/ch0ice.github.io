@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[计算机基础(2) --- 操作系统]]></title>
-    <url>%2Fbasic%2Fbasic-2-os%2F</url>
+    <title><![CDATA[计算机基础(1) --- 计算机硬件]]></title>
+    <url>%2Fbasic%2Fbasic-1-hardware%2F</url>
     <content type="text"></content>
       <categories>
         <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机基础</tag>
-        <tag>操作系统</tag>
+        <tag>计算机硬件</tag>
       </tags>
   </entry>
   <entry>
@@ -26,15 +26,15 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[计算机基础(1) --- 计算机硬件]]></title>
-    <url>%2Fbasic%2Fbasic-1-hardware%2F</url>
+    <title><![CDATA[计算机基础(2) --- 操作系统]]></title>
+    <url>%2Fbasic%2Fbasic-2-os%2F</url>
     <content type="text"></content>
       <categories>
         <category>计算机基础</category>
       </categories>
       <tags>
         <tag>计算机基础</tag>
-        <tag>计算机硬件</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>

@@ -17,9 +17,9 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>计算机基础(2) --- 操作系统</title>
-    <link href="http://blog.onlinetool.com.cn/basic/basic-2-os/"/>
-    <id>http://blog.onlinetool.com.cn/basic/basic-2-os/</id>
+    <title>计算机基础(1) --- 计算机硬件</title>
+    <link href="http://blog.onlinetool.com.cn/basic/basic-1-hardware/"/>
+    <id>http://blog.onlinetool.com.cn/basic/basic-1-hardware/</id>
     <published>2020-06-12T05:29:40.000Z</published>
     <updated>2020-09-25T03:37:14.684Z</updated>
     
@@ -32,7 +32,7 @@
     
       <category term="计算机基础" scheme="http://blog.onlinetool.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
-      <category term="操作系统" scheme="http://blog.onlinetool.com.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="计算机硬件" scheme="http://blog.onlinetool.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/"/>
     
   </entry>
   
@@ -66,9 +66,9 @@
   </entry>
   
   <entry>
-    <title>计算机基础(1) --- 计算机硬件</title>
-    <link href="http://blog.onlinetool.com.cn/basic/basic-1-hardware/"/>
-    <id>http://blog.onlinetool.com.cn/basic/basic-1-hardware/</id>
+    <title>计算机基础(2) --- 操作系统</title>
+    <link href="http://blog.onlinetool.com.cn/basic/basic-2-os/"/>
+    <id>http://blog.onlinetool.com.cn/basic/basic-2-os/</id>
     <published>2020-06-12T05:29:40.000Z</published>
     <updated>2020-09-25T03:37:14.684Z</updated>
     
@@ -81,7 +81,7 @@
     
       <category term="计算机基础" scheme="http://blog.onlinetool.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
-      <category term="计算机硬件" scheme="http://blog.onlinetool.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A1%AC%E4%BB%B6/"/>
+      <category term="操作系统" scheme="http://blog.onlinetool.com.cn/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
